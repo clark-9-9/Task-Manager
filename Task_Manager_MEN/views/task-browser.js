@@ -6,10 +6,9 @@ const task_form = document.querySelector(".task-form")
 const delete_btn = document.querySelector('.delete-btn')
 
 
-const GET_ALLTASK_URL = "http://localhost:3000/api/v1/tasks"
-
 
 async function getAllTask() {
+    const GET_ALLTASK_URL = `/api/v1/tasks`;
 
 
     try {
@@ -72,6 +71,7 @@ getAllTask()
 task_form.addEventListener("submit", postTask)
 
 async function postTask(e) {
+    const GET_ALLTASK_URL = `/api/v1/tasks`;
     
     e.preventDefault()
 
@@ -154,9 +154,9 @@ tasksParent.addEventListener('click', async (e) => {
 
 
         const id = element.dataset.id
+        const DELETE_TASK_URL = `/api/v1/tasks/${id}`
 
         try {
-            const DELETE_TASK_URL = `http://localhost:3000/api/v1/tasks/${id}`
         
             const data = await fetch(DELETE_TASK_URL, { method:"DELETE" })
             await data.json()

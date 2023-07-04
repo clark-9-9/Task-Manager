@@ -28,7 +28,7 @@ app.get('/', (req, res) => {
 async function main() {
 
   try {
-    const port = 3000
+    const port = process.env.PORT
     
     const DB = await connectDB(process.env.MONGO_URI)
     app.listen(port , console.log(`server runing on port ${port}`)) 
